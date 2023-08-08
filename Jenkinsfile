@@ -14,7 +14,7 @@ pipeline {
     stages { 
         stage('SCM Checkout') {
             steps{
-           git branch: 'main', url: 'https://github.com/okaforuchena/nodejs--uo.git'
+           git branch: 'main', url: 'https://github.com/okaforuchena/nodejs-uo.git'
             }
         }
         // run sonarqube test

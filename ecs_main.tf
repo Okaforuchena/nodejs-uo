@@ -15,7 +15,7 @@ resource "aws_ecs_task_definition" "my_task_definition" {
   network_mode             = "awsvpc"
   cpu                      = 1024
   memory                   = 2048
-  execution_role_arn       = aws_iam_role.ecs_task_execution_role.arn
+  execution_role_arn       = aws_iam_role.uo_ecs_task_execution_role.arn
   container_definitions    = <<EOF
 [
   {

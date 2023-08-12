@@ -1,39 +1,44 @@
+#deployment
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nodesy-deployment
+  name: amazon-deployment
+  namespace: default
   labels:
-    app: nodesy-app
+    app: amazon-app
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: nodesy-app
+      app: amazon-app
+      tier: frontend
+      version: 1.0.0
+#pod tempalte
   template:
     metadata:
       labels:
-        app: nodesy-app
-    spec:
+        app: amazon-app
+        tier: frontend
+        version: 1.0.0
+    spec: # Pod spec
       containers:
-      - name: nodesy-container
-       // image: uoacr.azurecr.io/nodejswebapp:v1.0.0
-        image: okaforuchena/uo-docker:V1.0.0
+      - name: amazon-container
+        image: ooghenekaro/amazon:latest
         ports:
         - containerPort: 3000
-
+        
+        
 ---
-
 apiVersion: v1
 kind: Service
 metadata:
-  name: nodesy-service
+  name: amazon-service
+  labels:
+    app: amazon-app
 spec:
-  selector:
-    app: nodesy-app
-  ports:
-    - protocol: TCP
-      port: 3000
-      targetPort: 3000
   type: LoadBalancer
-
-
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: amazon-app

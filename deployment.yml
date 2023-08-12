@@ -16,10 +16,10 @@ spec:
     spec:
       containers:
       - name: nodesy-container
-         // image: uoacr.azurecr.io/nodejswebapp:v1.0.0
+       // image: uoacr.azurecr.io/nodejswebapp:v1.0.0
           image: okaforuchena/uo-docker:V1.0.0
           ports:
-            - containerPort: 3000
+      - containerPort: 3000
 
 ---
 

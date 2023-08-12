@@ -15,7 +15,7 @@ spec:
         app: nodesy-app
     spec:
       containers:
-        - name: nodesy-container
+      - name: nodesy-container
          // image: uoacr.azurecr.io/nodejswebapp:v1.0.0
           image: okaforuchena/uo-docker:V1.0.0
           ports:
